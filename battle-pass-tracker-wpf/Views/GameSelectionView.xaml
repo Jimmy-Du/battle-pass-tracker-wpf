@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="battle_pass_tracker_wpf.Views.GameSelectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:battle_pass_tracker_wpf.Views"
+             mc:Ignorable="d" 
+             Width="600"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock 
+            Text="Game Selection" 
+            Foreground="White"
+            FontSize="30" 
+            TextDecorations="Underline"
+            FontWeight="Bold"
+            Grid.Row="0" 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"/>
+
+        <DataGrid
+            Grid.Row="2"
+            IsReadOnly="True"
+            AutoGenerateColumns="False" 
+            CanUserAddRows="False"
+            ItemsSource="{Binding GameSelectionList}">
+            <DataGrid.Columns>
+                <DataGridTextColumn 
+                    Header="Game"  
+                    Binding="{Binding title}" 
+                    Width="*"
+                    CanUserSort="False"/>
+                <DataGridTemplateColumn Header="Selected" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox 
+                                IsChecked="{Binding isSelected}" 
+                                Command="{Binding DataContext.SelectCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                CommandParameter="{Binding id}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
