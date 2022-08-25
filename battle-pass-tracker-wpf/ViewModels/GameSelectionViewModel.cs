@@ -47,12 +47,15 @@ namespace battle_pass_tracker_wpf.ViewModels
         {
             GameSelectionList = await BattlePassTrackerApi.GetGameSelection();
 
-            // for each loop to load the user's previously selected games
-            foreach (SelectGameModel game in GameSelectionList)
+            if (GameSelectionList != null)
             {
-                if (SelectedGames.Contains(game.id))
+                // for each loop to load the user's previously selected games
+                foreach (SelectGameModel game in GameSelectionList)
                 {
-                    game.isSelected = true;
+                    if (SelectedGames.Contains(game.id))
+                    {
+                        game.isSelected = true;
+                    }
                 }
             }
         }
