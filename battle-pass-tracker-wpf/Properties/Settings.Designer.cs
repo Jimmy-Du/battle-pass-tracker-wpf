@@ -25,7 +25,7 @@ namespace battle_pass_tracker_wpf.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("[]")]
         public string SelectedGames {
             get {
                 return ((string)(this["SelectedGames"]));
