@@ -11,7 +11,7 @@ namespace battle_pass_tracker_wpf.Utilities
 {
     static class BattlePassTrackerApi
     {
-        private static readonly string BaseURL = "https://battle-pass-tracker-api.herokuapp.com";
+        private static readonly string BaseURL = "https://battle-pass-tracker.onrender.com";
         public static HttpClient ApiClient { get; set; }
 
 
